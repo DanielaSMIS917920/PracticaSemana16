@@ -6,8 +6,8 @@ async function getBitcoins(){
         const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
         const data = await response.json();
         let bitcoinsList = "";
-        data.forEach(bpi => {
-            bitcoinsList+=`${bpi['rate']}`;
+        Array.from(data).forEach(bpi => {
+            bitcoinsList+=`${bpi['rate.code.description']}`;
         });
 
         //crear archivo
